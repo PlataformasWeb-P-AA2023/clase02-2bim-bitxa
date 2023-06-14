@@ -10,6 +10,8 @@ from administrativo.models import Estudiante, NumeroTelefonico
 # Se crea una clase que hereda
 # de ModelAdmin para el modelo
 # Estudiante
+
+
 class EstudianteAdmin(admin.ModelAdmin):
     # listado de atributos que se mostrará
     # por cada registro
@@ -17,6 +19,7 @@ class EstudianteAdmin(admin.ModelAdmin):
     # de la clase
     list_display = ('nombre', 'apellido', 'cedula')
     search_fields = ('nombre', 'cedula')
+
 
 # admin.site.register se lo altera
 # el primer argumento es el modelo (Estudiante)
@@ -30,6 +33,8 @@ admin.site.register(Estudiante, EstudianteAdmin)
 # Se crea una clase que hereda
 # de ModelAdmin para el modelo
 # NumeroTelefonico
+
+
 class NumeroTelefonicoAdmin(admin.ModelAdmin):
     # listado de atributos que se mostrará
     # por cada registro
@@ -46,4 +51,6 @@ class NumeroTelefonicoAdmin(admin.ModelAdmin):
     def get_estudiante(self, obj):
         """ """
         return obj.estudiante.apellido
+
+
 admin.site.register(NumeroTelefonico, NumeroTelefonicoAdmin)
